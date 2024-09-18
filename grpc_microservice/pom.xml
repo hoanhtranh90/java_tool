@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.sangnk</groupId>
+    <artifactId>grpc_test_microservice</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>grpc_test_microservice</name>
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+    <modules>
+        <module>eureka-service</module>
+        <module>gateway-service</module>
+        <module>grpc-common</module>
+        <module>user-service</module>
+        <module>party-service</module>
+    </modules>
+</project>
