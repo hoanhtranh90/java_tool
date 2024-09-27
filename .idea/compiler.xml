@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-service" />
+        <module name="encode_decode" />
         <module name="gateway-service" />
         <module name="dependency-injection-spring" />
         <module name="word_pdf" />
@@ -26,6 +27,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="dependency-injection-guice" options="-parameters" />
       <module name="dependency-injection-spring" options="-parameters" />
+      <module name="encode_decode" options="-parameters" />
       <module name="eureka-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
       <module name="party-service" options="-parameters" />
