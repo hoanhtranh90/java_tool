@@ -18,31 +18,9 @@ public class EncodeDecodeApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        testAES();
-        testRSA();
+
     }
 
-    private void testAES() throws NoSuchAlgorithmException {
-        AES aes = new AES();
-        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-        keyGenerator.init(128);
-        SecretKey secretKey = keyGenerator.generateKey();
-        String data = "Hello World";
-        byte[] encrypted = aes.encrypt(data.getBytes(), secretKey.getEncoded());
-        System.out.println("Encrypted: " + new String(encrypted));
-        byte[] decrypted = aes.decrypt(encrypted, secretKey.getEncoded());
-        System.out.println("Decrypted: " + new String(decrypted));
-    }
 
-    private void testRSA() throws NoSuchAlgorithmException {
-        RSA rsa = new RSA();
-        String plainText = "Hello, RSA!";
-        System.out.println("Original Text: " + plainText);
 
-        String encryptedText = rsa.encrypt(plainText);
-        System.out.println("Encrypted: " + encryptedText);
-
-        String decryptedText = rsa.decrypt(encryptedText);
-        System.out.println("Decrypted: " + decryptedText);
-    }
 }

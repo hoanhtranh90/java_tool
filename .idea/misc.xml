@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/dependency_injection/dependency-injection-spring/pom.xml" />
         <option value="$PROJECT_DIR$/dependency_injection/dependency-injection-guice/pom.xml" />
         <option value="$PROJECT_DIR$/encode_decode/pom.xml" />
+        <option value="$PROJECT_DIR$/design_pattern/pom.xml" />
       </list>
     </option>
   </component>

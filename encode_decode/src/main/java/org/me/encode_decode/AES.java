@@ -46,5 +46,22 @@ public class AES {
         }
     }
 
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+        testAES();
+    }
+
+    private static void testAES() throws NoSuchAlgorithmException {
+        AES aes = new AES();
+        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+        keyGenerator.init(128);
+        SecretKey secretKey = keyGenerator.generateKey();
+        String data = "Hello World";
+        System.out.println("Original Text: " + data);
+        byte[] encrypted = aes.encrypt(data.getBytes(), secretKey.getEncoded());
+        System.out.println("Encrypted: " + new String(encrypted));
+        byte[] decrypted = aes.decrypt(encrypted, secretKey.getEncoded());
+        System.out.println("Decrypted: " + new String(decrypted));
+    }
+
 
 }
