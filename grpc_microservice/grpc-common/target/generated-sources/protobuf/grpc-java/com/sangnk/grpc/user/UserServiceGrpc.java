@@ -108,6 +108,37 @@ public final class UserServiceGrpc {
     return getGetAllMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      com.sangnk.grpc.user.GetAllUsersResponseBlock> getGetAllBlockMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getAllBlock",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = com.sangnk.grpc.user.GetAllUsersResponseBlock.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      com.sangnk.grpc.user.GetAllUsersResponseBlock> getGetAllBlockMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.sangnk.grpc.user.GetAllUsersResponseBlock> getGetAllBlockMethod;
+    if ((getGetAllBlockMethod = UserServiceGrpc.getGetAllBlockMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getGetAllBlockMethod = UserServiceGrpc.getGetAllBlockMethod) == null) {
+          UserServiceGrpc.getGetAllBlockMethod = getGetAllBlockMethod =
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.sangnk.grpc.user.GetAllUsersResponseBlock>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getAllBlock"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sangnk.grpc.user.GetAllUsersResponseBlock.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("getAllBlock"))
+              .build();
+        }
+      }
+    }
+    return getGetAllBlockMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.sangnk.grpc.user.UserId,
       com.sangnk.grpc.user.DeletedUsers> getDeleteMultipleMethod;
 
@@ -137,6 +168,68 @@ public final class UserServiceGrpc {
       }
     }
     return getDeleteMultipleMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.sangnk.grpc.user.DeleteUsersRequest,
+      com.sangnk.grpc.user.DeleteResponse> getDeleteMultipleBlockMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "deleteMultipleBlock",
+      requestType = com.sangnk.grpc.user.DeleteUsersRequest.class,
+      responseType = com.sangnk.grpc.user.DeleteResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.sangnk.grpc.user.DeleteUsersRequest,
+      com.sangnk.grpc.user.DeleteResponse> getDeleteMultipleBlockMethod() {
+    io.grpc.MethodDescriptor<com.sangnk.grpc.user.DeleteUsersRequest, com.sangnk.grpc.user.DeleteResponse> getDeleteMultipleBlockMethod;
+    if ((getDeleteMultipleBlockMethod = UserServiceGrpc.getDeleteMultipleBlockMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getDeleteMultipleBlockMethod = UserServiceGrpc.getDeleteMultipleBlockMethod) == null) {
+          UserServiceGrpc.getDeleteMultipleBlockMethod = getDeleteMultipleBlockMethod =
+              io.grpc.MethodDescriptor.<com.sangnk.grpc.user.DeleteUsersRequest, com.sangnk.grpc.user.DeleteResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "deleteMultipleBlock"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sangnk.grpc.user.DeleteUsersRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sangnk.grpc.user.DeleteResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("deleteMultipleBlock"))
+              .build();
+        }
+      }
+    }
+    return getDeleteMultipleBlockMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.sangnk.grpc.user.EditUserRequest,
+      com.sangnk.grpc.user.EditUserResponse> getEditMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "edit",
+      requestType = com.sangnk.grpc.user.EditUserRequest.class,
+      responseType = com.sangnk.grpc.user.EditUserResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.sangnk.grpc.user.EditUserRequest,
+      com.sangnk.grpc.user.EditUserResponse> getEditMethod() {
+    io.grpc.MethodDescriptor<com.sangnk.grpc.user.EditUserRequest, com.sangnk.grpc.user.EditUserResponse> getEditMethod;
+    if ((getEditMethod = UserServiceGrpc.getEditMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getEditMethod = UserServiceGrpc.getEditMethod) == null) {
+          UserServiceGrpc.getEditMethod = getEditMethod =
+              io.grpc.MethodDescriptor.<com.sangnk.grpc.user.EditUserRequest, com.sangnk.grpc.user.EditUserResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "edit"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sangnk.grpc.user.EditUserRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sangnk.grpc.user.EditUserResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("edit"))
+              .build();
+        }
+      }
+    }
+    return getEditMethod;
   }
 
   /**
@@ -210,9 +303,30 @@ public final class UserServiceGrpc {
 
     /**
      */
+    default void getAllBlock(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<com.sangnk.grpc.user.GetAllUsersResponseBlock> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAllBlockMethod(), responseObserver);
+    }
+
+    /**
+     */
     default io.grpc.stub.StreamObserver<com.sangnk.grpc.user.UserId> deleteMultiple(
         io.grpc.stub.StreamObserver<com.sangnk.grpc.user.DeletedUsers> responseObserver) {
       return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getDeleteMultipleMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void deleteMultipleBlock(com.sangnk.grpc.user.DeleteUsersRequest request,
+        io.grpc.stub.StreamObserver<com.sangnk.grpc.user.DeleteResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteMultipleBlockMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void edit(com.sangnk.grpc.user.EditUserRequest request,
+        io.grpc.stub.StreamObserver<com.sangnk.grpc.user.EditUserResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getEditMethod(), responseObserver);
     }
   }
 
@@ -269,10 +383,34 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public void getAllBlock(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<com.sangnk.grpc.user.GetAllUsersResponseBlock> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetAllBlockMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public io.grpc.stub.StreamObserver<com.sangnk.grpc.user.UserId> deleteMultiple(
         io.grpc.stub.StreamObserver<com.sangnk.grpc.user.DeletedUsers> responseObserver) {
       return io.grpc.stub.ClientCalls.asyncClientStreamingCall(
           getChannel().newCall(getDeleteMultipleMethod(), getCallOptions()), responseObserver);
+    }
+
+    /**
+     */
+    public void deleteMultipleBlock(com.sangnk.grpc.user.DeleteUsersRequest request,
+        io.grpc.stub.StreamObserver<com.sangnk.grpc.user.DeleteResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDeleteMultipleBlockMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void edit(com.sangnk.grpc.user.EditUserRequest request,
+        io.grpc.stub.StreamObserver<com.sangnk.grpc.user.EditUserResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getEditMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -313,6 +451,27 @@ public final class UserServiceGrpc {
       return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
           getChannel(), getGetAllMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public com.sangnk.grpc.user.GetAllUsersResponseBlock getAllBlock(com.google.protobuf.Empty request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetAllBlockMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.sangnk.grpc.user.DeleteResponse deleteMultipleBlock(com.sangnk.grpc.user.DeleteUsersRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDeleteMultipleBlockMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.sangnk.grpc.user.EditUserResponse edit(com.sangnk.grpc.user.EditUserRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getEditMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -346,12 +505,39 @@ public final class UserServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetByIdMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.sangnk.grpc.user.GetAllUsersResponseBlock> getAllBlock(
+        com.google.protobuf.Empty request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetAllBlockMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.sangnk.grpc.user.DeleteResponse> deleteMultipleBlock(
+        com.sangnk.grpc.user.DeleteUsersRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDeleteMultipleBlockMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.sangnk.grpc.user.EditUserResponse> edit(
+        com.sangnk.grpc.user.EditUserRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getEditMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE = 0;
   private static final int METHODID_GET_BY_ID = 1;
   private static final int METHODID_GET_ALL = 2;
-  private static final int METHODID_DELETE_MULTIPLE = 3;
+  private static final int METHODID_GET_ALL_BLOCK = 3;
+  private static final int METHODID_DELETE_MULTIPLE_BLOCK = 4;
+  private static final int METHODID_EDIT = 5;
+  private static final int METHODID_DELETE_MULTIPLE = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -381,6 +567,18 @@ public final class UserServiceGrpc {
         case METHODID_GET_ALL:
           serviceImpl.getAll((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<com.sangnk.grpc.user.UserMessage>) responseObserver);
+          break;
+        case METHODID_GET_ALL_BLOCK:
+          serviceImpl.getAllBlock((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<com.sangnk.grpc.user.GetAllUsersResponseBlock>) responseObserver);
+          break;
+        case METHODID_DELETE_MULTIPLE_BLOCK:
+          serviceImpl.deleteMultipleBlock((com.sangnk.grpc.user.DeleteUsersRequest) request,
+              (io.grpc.stub.StreamObserver<com.sangnk.grpc.user.DeleteResponse>) responseObserver);
+          break;
+        case METHODID_EDIT:
+          serviceImpl.edit((com.sangnk.grpc.user.EditUserRequest) request,
+              (io.grpc.stub.StreamObserver<com.sangnk.grpc.user.EditUserResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -425,12 +623,33 @@ public final class UserServiceGrpc {
               com.sangnk.grpc.user.UserMessage>(
                 service, METHODID_GET_ALL)))
         .addMethod(
+          getGetAllBlockMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.google.protobuf.Empty,
+              com.sangnk.grpc.user.GetAllUsersResponseBlock>(
+                service, METHODID_GET_ALL_BLOCK)))
+        .addMethod(
           getDeleteMultipleMethod(),
           io.grpc.stub.ServerCalls.asyncClientStreamingCall(
             new MethodHandlers<
               com.sangnk.grpc.user.UserId,
               com.sangnk.grpc.user.DeletedUsers>(
                 service, METHODID_DELETE_MULTIPLE)))
+        .addMethod(
+          getDeleteMultipleBlockMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.sangnk.grpc.user.DeleteUsersRequest,
+              com.sangnk.grpc.user.DeleteResponse>(
+                service, METHODID_DELETE_MULTIPLE_BLOCK)))
+        .addMethod(
+          getEditMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.sangnk.grpc.user.EditUserRequest,
+              com.sangnk.grpc.user.EditUserResponse>(
+                service, METHODID_EDIT)))
         .build();
   }
 
@@ -482,7 +701,10 @@ public final class UserServiceGrpc {
               .addMethod(getCreateMethod())
               .addMethod(getGetByIdMethod())
               .addMethod(getGetAllMethod())
+              .addMethod(getGetAllBlockMethod())
               .addMethod(getDeleteMultipleMethod())
+              .addMethod(getDeleteMultipleBlockMethod())
+              .addMethod(getEditMethod())
               .build();
         }
       }

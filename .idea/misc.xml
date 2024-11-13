@@ -11,6 +11,8 @@
         <option value="$PROJECT_DIR$/dependency_injection/dependency-injection-guice/pom.xml" />
         <option value="$PROJECT_DIR$/encode_decode/pom.xml" />
         <option value="$PROJECT_DIR$/design_pattern/pom.xml" />
+        <option value="$PROJECT_DIR$/jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/lc/pom.xml" />
       </list>
     </option>
   </component>

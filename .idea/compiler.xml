@@ -7,17 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eureka-service" />
         <module name="encode_decode" />
         <module name="design_pattern" />
-        <module name="gateway-service" />
         <module name="dependency-injection-spring" />
         <module name="word_pdf" />
         <module name="user-service" />
-        <module name="party-service" />
-        <module name="dependency-injection-guice" />
         <module name="dependency_injection" />
         <module name="grpc-common" />
+        <module name="eureka-service" />
+        <module name="gateway-service" />
+        <module name="lc" />
+        <module name="jpa" />
+        <module name="party-service" />
+        <module name="dependency-injection-guice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -32,6 +34,8 @@
       <module name="encode_decode" options="-parameters" />
       <module name="eureka-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
+      <module name="jpa" options="-parameters" />
+      <module name="lc" options="-parameters" />
       <module name="party-service" options="-parameters" />
       <module name="user-service" options="-parameters" />
       <module name="word_pdf" options="-parameters" />

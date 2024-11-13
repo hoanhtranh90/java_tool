@@ -26,6 +26,11 @@ import java.util.concurrent.*;
 @Slf4j
 @Service
 public class UserServiceClient extends UserServiceGrpc.UserServiceImplBase {
+    /*
+    BlockingStub dùng cho xử lý đồng bộ.
+    FutureStub dùng cho xử lý bất đồng bộ, không yêu cầu streaming.
+    Stub (streaming) dùng cho xử lý streaming hai chiều hoặc nhiều yêu cầu - nhiều đáp ứng.
+     */
     ManagedChannel channel;
     public static final int ONE_SECOND = 1_000;
     private UserServiceGrpc.UserServiceBlockingStub blockingStub;

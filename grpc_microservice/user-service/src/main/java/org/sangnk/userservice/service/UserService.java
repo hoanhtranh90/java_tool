@@ -2,23 +2,20 @@ package org.sangnk.userservice.service;
 
 import com.google.rpc.Code;
 import com.google.rpc.Status;
-import com.sangnk.grpc.user.UserId;
-import com.sangnk.grpc.user.UserInput;
-import com.sangnk.grpc.user.UserMessage;
-import com.sangnk.grpc.user.UserServiceGrpc;
+import com.sangnk.grpc.user.*;
 import io.grpc.protobuf.StatusProto;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
-import org.sangnk.userservice.dto.CreateUserRequest;
-import org.sangnk.userservice.dto.CreateUserResponse;
 import org.sangnk.userservice.dto.UserDTO;
 import org.sangnk.userservice.exception.AlreadyExistsException;
 import org.sangnk.userservice.exception.EntityNotFoundException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  * @author sangnk
@@ -29,10 +26,14 @@ import java.util.Random;
 @Slf4j
 @GrpcService
 public class UserService extends UserServiceGrpc.UserServiceImplBase {
-    public List<UserDTO> users = List.of(
+//    public List<UserDTO> users = List.of(
+//            UserDTO.builder().id(1).name("sang").build(),
+//            UserDTO.builder().id(2).name("nguyen").build()
+//    );
+    public List<UserDTO> users = new ArrayList( List.of(
             UserDTO.builder().id(1).name("sang").build(),
             UserDTO.builder().id(2).name("nguyen").build()
-    );
+    ));
     @Override
     public void create(UserInput request, StreamObserver<UserId> responseObserver) {
         log.info("Server - create user");
@@ -70,6 +71,69 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
         responseObserver.onCompleted();
     }
 
+    @Override
+    public void deleteMultipleBlock(DeleteUsersRequest request, StreamObserver<DeleteResponse> responseObserver) {
+        log.info("Server - delete multiple users");
+        List<String> failedIds = new ArrayList<>();
+        boolean success = true;
+
+        for (int id : request.getUserIdsList()) {
+            Optional<UserDTO> user = getUserById(id);
+            if (user.isPresent()) {
+                users.remove(user.get());
+            } else {
+                success = false;
+                failedIds.add(String.valueOf(id));
+            }
+        }
+
+        DeleteResponse response = DeleteResponse.newBuilder()
+                .setSuccess(success)
+                .addAllFailedIds(failedIds)
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getAllBlock(com.google.protobuf.Empty request, StreamObserver<GetAllUsersResponseBlock> responseObserver) {
+        GetAllUsersResponseBlock response = GetAllUsersResponseBlock.newBuilder()
+                .addAllUsers(users.stream()
+                        .map(this::toUser)
+                        .collect(Collectors.toList()))
+                .build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void edit(EditUserRequest request, StreamObserver<EditUserResponse> responseObserver) {
+        int userId = request.getId();
+        String newName = request.getName();
+
+        Optional<UserDTO> userOptional = getUserById(userId);
+        if (userOptional.isPresent()) {
+            UserDTO user = userOptional.get();
+            user.setName(newName);
+            save(user);
+
+            EditUserResponse response = EditUserResponse.newBuilder()
+                    .setSuccess(true)
+                    .setMessage("User updated successfully")
+                    .build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        } else {
+            EditUserResponse response = EditUserResponse.newBuilder()
+                    .setSuccess(false)
+                    .setMessage("User not found")
+                    .build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+    }
+
     public int createUser(String name) {
         if (existsByName(name))
             throw new AlreadyExistsException("User with name: " + name + " already exists");
@@ -85,7 +149,12 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
     }
 
     private void save(UserDTO user) {
-        users.add(user);
+        try {
+            users.add(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("Error saving user", e);
+        }
     }
 
     public Optional<UserDTO> getUserById(int id) {

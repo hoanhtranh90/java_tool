@@ -20,6 +20,16 @@ public final class User {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sangnk_UserInput_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sangnk_DeleteUsersRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sangnk_DeleteUsersRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sangnk_DeleteResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sangnk_DeleteResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sangnk_UserId_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -30,10 +40,25 @@ public final class User {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sangnk_UserMessage_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sangnk_GetAllUsersResponseBlock_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sangnk_GetAllUsersResponseBlock_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sangnk_DeletedUsers_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sangnk_DeletedUsers_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sangnk_EditUserRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sangnk_EditUserRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sangnk_EditUserResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sangnk_EditUserResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -45,16 +70,28 @@ public final class User {
     java.lang.String[] descriptorData = {
       "\n\nuser.proto\022\006sangnk\032\033google/protobuf/em" +
       "pty.proto\032\036google/protobuf/wrappers.prot" +
-      "o\"\031\n\tUserInput\022\014\n\004name\030\001 \001(\t\"\024\n\006UserId\022\n" +
-      "\n\002id\030\001 \001(\005\"\'\n\013UserMessage\022\n\n\002id\030\001 \001(\005\022\014\n" +
-      "\004name\030\002 \001(\t\"\033\n\014DeletedUsers\022\013\n\003ids\030\001 \003(\005" +
-      "2\335\001\n\013UserService\022+\n\006create\022\021.sangnk.User" +
-      "Input\032\016.sangnk.UserId\022.\n\007getById\022\016.sangn" +
-      "k.UserId\032\023.sangnk.UserMessage\0227\n\006getAll\022" +
-      "\026.google.protobuf.Empty\032\023.sangnk.UserMes" +
-      "sage0\001\0228\n\016deleteMultiple\022\016.sangnk.UserId",
-      "\032\024.sangnk.DeletedUsers(\001B\030\n\024com.sangnk.g" +
-      "rpc.userP\001b\006proto3"
+      "o\"\031\n\tUserInput\022\014\n\004name\030\001 \001(\t\"&\n\022DeleteUs" +
+      "ersRequest\022\020\n\010user_ids\030\001 \003(\005\"5\n\016DeleteRe" +
+      "sponse\022\017\n\007success\030\001 \001(\010\022\022\n\nfailed_ids\030\002 " +
+      "\003(\t\"\024\n\006UserId\022\n\n\002id\030\001 \001(\005\"\'\n\013UserMessage" +
+      "\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\">\n\030GetAllUser" +
+      "sResponseBlock\022\"\n\005users\030\001 \003(\0132\023.sangnk.U" +
+      "serMessage\"\033\n\014DeletedUsers\022\013\n\003ids\030\001 \003(\005\"" +
+      "+\n\017EditUserRequest\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002",
+      " \001(\t\"4\n\020EditUserResponse\022\017\n\007success\030\001 \001(" +
+      "\010\022\017\n\007message\030\002 \001(\t2\254\003\n\013UserService\022+\n\006cr" +
+      "eate\022\021.sangnk.UserInput\032\016.sangnk.UserId\022" +
+      ".\n\007getById\022\016.sangnk.UserId\032\023.sangnk.User" +
+      "Message\0227\n\006getAll\022\026.google.protobuf.Empt" +
+      "y\032\023.sangnk.UserMessage0\001\022G\n\013getAllBlock\022" +
+      "\026.google.protobuf.Empty\032 .sangnk.GetAllU" +
+      "sersResponseBlock\0228\n\016deleteMultiple\022\016.sa" +
+      "ngnk.UserId\032\024.sangnk.DeletedUsers(\001\022I\n\023d" +
+      "eleteMultipleBlock\022\032.sangnk.DeleteUsersR",
+      "equest\032\026.sangnk.DeleteResponse\0229\n\004edit\022\027" +
+      ".sangnk.EditUserRequest\032\030.sangnk.EditUse" +
+      "rResponseB\030\n\024com.sangnk.grpc.userP\001b\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -76,24 +113,54 @@ public final class User {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sangnk_UserInput_descriptor,
         new java.lang.String[] { "Name", });
-    internal_static_sangnk_UserId_descriptor =
+    internal_static_sangnk_DeleteUsersRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_sangnk_DeleteUsersRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sangnk_DeleteUsersRequest_descriptor,
+        new java.lang.String[] { "UserIds", });
+    internal_static_sangnk_DeleteResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_sangnk_DeleteResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sangnk_DeleteResponse_descriptor,
+        new java.lang.String[] { "Success", "FailedIds", });
+    internal_static_sangnk_UserId_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_sangnk_UserId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sangnk_UserId_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_sangnk_UserMessage_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_sangnk_UserMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sangnk_UserMessage_descriptor,
         new java.lang.String[] { "Id", "Name", });
+    internal_static_sangnk_GetAllUsersResponseBlock_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_sangnk_GetAllUsersResponseBlock_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sangnk_GetAllUsersResponseBlock_descriptor,
+        new java.lang.String[] { "Users", });
     internal_static_sangnk_DeletedUsers_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_sangnk_DeletedUsers_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sangnk_DeletedUsers_descriptor,
         new java.lang.String[] { "Ids", });
+    internal_static_sangnk_EditUserRequest_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_sangnk_EditUserRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sangnk_EditUserRequest_descriptor,
+        new java.lang.String[] { "Id", "Name", });
+    internal_static_sangnk_EditUserResponse_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_sangnk_EditUserResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sangnk_EditUserResponse_descriptor,
+        new java.lang.String[] { "Success", "Message", });
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
   }

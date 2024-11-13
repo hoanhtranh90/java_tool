@@ -11,6 +11,8 @@
     <file url="file://$PROJECT_DIR$/grpc_microservice/gateway-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/grpc_microservice/party-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/grpc_microservice/user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpa/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lc/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/word_pdf/src/main/java" charset="UTF-8" />
   </component>
 </project>

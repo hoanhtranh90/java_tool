@@ -11,6 +11,15 @@ message UserInput {
     string name = 1;
 }
 
+message DeleteUsersRequest  {
+    repeated int32 user_ids  = 1;
+}
+
+message DeleteResponse {
+    bool success = 1;
+    repeated string failed_ids = 2; // Danh sách các ID xóa không thành công (nếu có)
+}
+
 message UserId {
     int32 id = 1;
 }
@@ -20,16 +29,32 @@ message UserMessage {
     string name = 2;
 }
 
+message GetAllUsersResponseBlock {
+    repeated UserMessage users = 1;
+}
+
 message DeletedUsers {
     repeated int32 ids = 1;
 }
 
+message EditUserRequest {
+    int32 id = 1;
+    string name = 2;
+}
+
+message EditUserResponse {
+    bool success = 1;
+    string message = 2;
+}
 
 
 service UserService {
     rpc create(UserInput) returns (UserId);
     rpc getById(UserId) returns (UserMessage);
     rpc getAll(google.protobuf.Empty) returns (stream UserMessage);
+    rpc getAllBlock(google.protobuf.Empty) returns (GetAllUsersResponseBlock);
     rpc deleteMultiple(stream UserId) returns (DeletedUsers);
+    rpc deleteMultipleBlock(DeleteUsersRequest) returns (DeleteResponse);
+    rpc edit(EditUserRequest) returns (EditUserResponse);
 
 }
