@@ -1,0 +1,13 @@
+org\sangnk\partyservice\config\GrpcChannelManager.class
+org\sangnk\partyservice\interceptor\GrpcClientInterceptor$EnrichedHeadersClientCall.class
+org\sangnk\partyservice\service\UserServiceClient.class
+org\sangnk\partyservice\dto\input\NotificationInput.class
+org\sangnk\partyservice\config\BeanConfig.class
+org\sangnk\partyservice\controller\UserController.class
+org\sangnk\partyservice\interceptor\GrpcClientInterceptor.class
+org\sangnk\partyservice\observer\DeletedUsersStreamObserver.class
+org\sangnk\partyservice\PartyServiceApplication.class
+org\sangnk\partyservice\dto\output\UserDTO.class
+org\sangnk\partyservice\dto\input\UserCreationInput.class
+org\sangnk\partyservice\observer\GetAllUsersStreamObserver.class
+org\sangnk\partyservice\observer\CreatedUserIdStreamObserver.class

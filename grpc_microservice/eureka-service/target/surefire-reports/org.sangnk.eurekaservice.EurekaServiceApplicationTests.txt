@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.sangnk.eurekaservice.EurekaServiceApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.819 s -- in org.sangnk.eurekaservice.EurekaServiceApplicationTests

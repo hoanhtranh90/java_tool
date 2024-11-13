@@ -1,0 +1,30 @@
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    instanceInfoReplicationIntervalSeconds: 5
+    initialInstanceInfoReplicationIntervalSeconds: 5
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+server:
+  port: 4040
+  http2:
+    enabled: true
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: party-service
+          uri: lb://PARTY-SERVICE
+          predicates:
+            - Path=/party-service/**
+          filters:
+            - StripPrefix=1
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user-service/**
+          filters:
+            - StripPrefix=1
